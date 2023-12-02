@@ -15,6 +15,6 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: vaski.com.br
-          username: ${{ secrets.ftp_user }}
-          password: ${{ secrets.ftp_password }}
+          username: u483821734
+          password: Av98199460&
           server-dir: public_html/dashboard
