@@ -2,17 +2,17 @@
 require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/Router.php';
 
-// define('HOSTNAME', '191.252.194.174');
-// define('PORT', '3306');
-// define('USERNAME', 'admin_40075682');
-// define('PASSWORD', 'a40075682');
-// define('DATABASE', 'admin_a40075682');
-
-define('HOSTNAME', 'localhost');
+define('HOSTNAME', '191.252.194.174');
 define('PORT', '3306');
-define('USERNAME', 'root');
-define('PASSWORD', 'root');
-define('DATABASE', 'xandinhouiui');
+define('USERNAME', 'admin_40075682');
+define('PASSWORD', 'a40075682');
+define('DATABASE', 'admin_a40075682');
+
+// define('HOSTNAME', 'localhost');
+// define('PORT', '3306');
+// define('USERNAME', 'root');
+// define('PASSWORD', 'root');
+// define('DATABASE', 'xandinhouiui');
 
 
 try {
