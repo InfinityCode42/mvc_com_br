@@ -14,7 +14,7 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: vaski.com.br
+          server: 195.35.41.180
           username: u483821734
           password: Av98199460&
           server-dir: public_html/
