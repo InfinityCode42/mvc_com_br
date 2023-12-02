@@ -6,6 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'mvc_com_br\\src\\' => array($baseDir . '/src'),
+    'backoffice\\src\\' => array($baseDir . '/src'),
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
 );

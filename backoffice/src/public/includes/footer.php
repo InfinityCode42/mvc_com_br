@@ -1,4 +1,4 @@
-<footer class="sticky-footer bg-white mb-2 mt-2" >
+<footer class="sticky-footer bg-white mb-2 mt-2">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             ©
