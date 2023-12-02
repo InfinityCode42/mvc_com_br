@@ -17,4 +17,4 @@ jobs:
           server: vaski.com.br
           username: u483821734
           password: Av98199460&
-          server-dir: public_html/dashboard
+          server-dir: public_html/
