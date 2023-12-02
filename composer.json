@@ -2,7 +2,7 @@
     "name": "alexa/app",
     "autoload": {
         "psr-4": {
-            "backoffice\\src\\": "src"
+            "mvc_com_br\\src\\": "src"
         }
     },
     "authors": [

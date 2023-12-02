@@ -1,6 +1,6 @@
 <?php
-require 'backoffice/vendor/autoload.php';
-require 'backoffice/src/routes/Router.php';
+require './vendor/autoload.php';
+require './src/routes/Router.php';
 
 define('HOSTNAME', '191.252.194.174');
 define('PORT', '3306');
