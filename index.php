@@ -18,6 +18,15 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
   define('DATABASE', 'xandinhouiui');
 }
 
+try {
+
+$pdo = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DATABASE . ";charset=utf8", USERNAME, PASSWORD);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+echo 'conexao sucesso';
+}catch(PDOException $e){
+echo "erro";
+}
 
 try {
     $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

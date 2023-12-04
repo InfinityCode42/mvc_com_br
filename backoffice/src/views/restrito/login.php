@@ -85,7 +85,9 @@
                     } else {
                         Swal.fire(response.title, response.message, response.status);
                     }
-                }
+                },
+error: function(xhr,status,error){
+console.log('deu erro')}
             });
         });
     });
