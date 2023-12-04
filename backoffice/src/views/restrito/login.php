@@ -67,7 +67,7 @@
     $('#btn-entrar').click(function (e) {
       e.preventDefault();
       $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/login",
         dataType: 'json',
         data: new FormData(document.getElementById('form-login')),
