@@ -1,10 +1,6 @@
 <?php
-use backoffice\src\core\Core;
 require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/Router.php';
-require 'backoffice/src/core/Core.php';
-
-$core = new Core;
 
 
 if ($_SERVER['SERVER_NAME'] == 'novastack.tech') {
@@ -30,7 +26,7 @@ try {
 
   
 } catch (PDOException $e) {
-   $core->pre('Erro de conexão ' . $e);
+   echo 'Erro de conexão';
 }
 
 try {
