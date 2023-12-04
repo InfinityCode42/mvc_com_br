@@ -24,7 +24,8 @@
                         name="senha">
                     </div>
                     <div class="text-center">
-                      <button type="button" id="btn-entrar" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
+                      <button type="button" id="btn-entrar"
+                        class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
                     </div>
                   </form>
                 </div>
@@ -43,8 +44,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
+            <div
+              class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+              <div
+                class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
                 style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg'); background-size: cover;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
@@ -68,6 +71,8 @@
         url: "/login",
         dataType: 'json',
         data: new FormData(document.getElementById('form-login')),
+        processData: false,  // Adicione esta linha
+        contentType: false,  // Adicione esta linha
         beforeSend: function () {
         },
         complete: function () {
@@ -87,6 +92,7 @@
           console.log('deu erro');
         }
       });
+
     });
   });
 </script>
