@@ -1,6 +1,11 @@
 <?php
+use backoffice\src\core\Core;
 require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/Router.php';
+require 'backoffice/src/core/Core.php';
+
+$core = new Core;
+
 
 if ($_SERVER['SERVER_NAME'] == 'novastack.tech') {
   define('HOSTNAME', '127.0.0.1');
@@ -23,9 +28,9 @@ try {
   $pdo = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DATABASE . ";charset=utf8", USERNAME, PASSWORD);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  echo 'conexao sucesso';
+  
 } catch (PDOException $e) {
-  echo "erro";
+   $core->pre('Erro de conexão ' . $e);
 }
 
 try {
