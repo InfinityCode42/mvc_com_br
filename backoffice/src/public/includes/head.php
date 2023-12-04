@@ -25,17 +25,17 @@
   <link id="pagestyle" href="backoffice\src\public\assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="backoffic\src\public/vendor/jquery/jquery.min.js"></script>
 
-  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="backoffic\src\public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="backoffic\src\public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <script src="/assets/js/core/popper.min.js"></script>
+  <script src="backoffic\src\public/assets/js/core/popper.min.js"></script>
 
-  <script src="/assets/js/core/bootstrap.min.js"></script>
+  <script src="backoffic\src\public/assets/js/core/bootstrap.min.js"></script>
 
-  <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="backoffic\src\public/assets/js/plugins/perfect-scrollbar.min.js"></script>
 
   <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
 
