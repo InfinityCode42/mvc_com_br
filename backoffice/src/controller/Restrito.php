@@ -15,6 +15,7 @@ class Restrito{
     }
     public function index()
     {
+var_dump($this->core->getData('usuarios', 'nome'));
         MontagemView::view("/restrito/login");
     }
     public function cadastrar(){
@@ -22,7 +23,7 @@ class Restrito{
     }
     public function login()
     {
-        // $this->core->pre($_POST);
+        $this->core->pre($_POST);
         if (isset($_POST['email']) && isset($_POST['senha'])) {
             
             $verificar['email'] = $_POST['email'];

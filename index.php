@@ -3,11 +3,11 @@ require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/Router.php';
 
 if($_SERVER['SERVER_NAME'] == 'novastack.tech'){
-  define('HOSTNAME', '191.252.194.174');
+  define('HOSTNAME', '127.0.01');
   define('PORT', '3306');
-  define('USERNAME', 'admin_40075682');
-  define('PASSWORD', 'a40075682');
-  define('DATABASE', 'admin_a40075682');
+  define('USERNAME', 'u483821734_root');
+  define('PASSWORD', 'alexandrE123&');
+  define('DATABASE', 'u483821734_novastack');
 }
 
 if($_SERVER['SERVER_NAME'] == 'localhost'){
@@ -18,6 +18,15 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
   define('DATABASE', 'xandinhouiui');
 }
 
+try {
+
+$pdo = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DATABASE . ";charset=utf8", USERNAME, PASSWORD);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+echo 'conexao sucesso';
+}catch(PDOException $e){
+echo "erro";
+}
 
 try {
     $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
