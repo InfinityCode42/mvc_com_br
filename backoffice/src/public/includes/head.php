@@ -12,6 +12,7 @@
   </title>
   <!--     Fonts and icons     -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
   <!-- Nucleo Icons -->

@@ -56,8 +56,6 @@
       </div>
     </section>
   </main>
-  
-  <?php include(__DIR__ . '/../../public/includes/scriptsJS.php'); ?>
 </body>
 <script>
     $(function () {
