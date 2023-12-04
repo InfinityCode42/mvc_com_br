@@ -15,7 +15,6 @@ class Restrito{
     }
     public function index()
     {
-var_dump($this->core->getData('usuarios', 'nome'));
         MontagemView::view("/restrito/login");
     }
     public function cadastrar(){
