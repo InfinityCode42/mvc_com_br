@@ -15,10 +15,10 @@ class Restrito{
     }
     public function index()
     {
-        MontagemView::view("/Restrito/login");
+        MontagemView::view("/restrito/login");
     }
     public function cadastrar(){
-        MontagemView::view("/Restrito/register");
+        MontagemView::view("/restrito/register");
     }
     public function login()
     {
