@@ -3,7 +3,7 @@ require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/Router.php';
 
 if($_SERVER['SERVER_NAME'] == 'novastack.tech'){
-  define('HOSTNAME', '127.0.01');
+  define('HOSTNAME', '127.0.0.1');
   define('PORT', '3306');
   define('USERNAME', 'u483821734_root');
   define('PASSWORD', 'alexandrE123&');
