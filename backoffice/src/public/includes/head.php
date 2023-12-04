@@ -16,13 +16,13 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
   <!-- Nucleo Icons -->
-  <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 
   <!-- Bootstrap core JavaScript -->
   <script src="/vendor/jquery/jquery.min.js"></script>
@@ -31,17 +31,17 @@
 
   <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <script src="/assets/js/core/popper.min.js"></script>
+  <script src="/js/core/popper.min.js"></script>
 
-  <script src="/assets/js/core/bootstrap.min.js"></script>
+  <script src="/js/core/bootstrap.min.js"></script>
 
-  <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="/js/plugins/perfect-scrollbar.min.js"></script>
 
-  <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="/js/plugins/smooth-scrollbar.min.js"></script>
 
-  <script src="/assets/js/plugins/chartjs.min.js"></script>
+  <script src="/js/plugins/chartjs.min.js"></script>
 
-  <script src="/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="/js/argon-dashboard.min.js?v=2.0.4"></script>
 
   <!-- SWEET ALERT -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
