@@ -15,7 +15,6 @@ class Restrito{
     }
     public function index()
     {
-        $this->core->applyKeys();
         MontagemView::view("/restrito/login");
     }
     public function cadastrar(){
