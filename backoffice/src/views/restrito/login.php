@@ -68,7 +68,7 @@
       e.preventDefault();
       $.ajax({
         type: "POST",
-        url: "/login",
+        url: "\\login",
         async: false,
         cache: false,
         contentType: false,

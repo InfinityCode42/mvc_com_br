@@ -44,7 +44,7 @@ $router = [
     "/alugar/ver" => fn () => load("Alugar", "ver"),
   ],
   "POST" => [
-    "/login" => fn () => load("Restrito", "login"),
+    "\\login" => fn () => load("Restrito", "login"),
     "/restrito/salvar" => fn () => load("Restrito", "salvar"),
 
     "/usuarios/salvar" => fn () => load("Usuarios", "salvar"),
