@@ -7,13 +7,6 @@
     "content-hash": "c76eef735a851968be29ed0837323d3f",
     "packages": [
         {
-            "name": "league/plates",
-            "version": "v3.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/plates.git",
-                "reference": "a6a3238e46c6e19af7318fdc36bfbe49b0620231"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/plates/zipball/a6a3238e46c6e19af7318fdc36bfbe49b0620231",
@@ -32,11 +25,6 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\Plates\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -58,7 +46,6 @@
             "description": "Plates, the native PHP template system that's fast, easy to use and easy to extend.",
             "homepage": "https://platesphp.com",
             "keywords": [
-                "league",
                 "package",
                 "templates",
                 "templating",

@@ -10,8 +10,5 @@
             "name": "Alexandre Osovski",
             "email": "74330383+AlexandreOsovski@users.noreply.github.com"
         }
-    ],
-    "require": {
-        "league/plates": "^3.5"
-    }
+    ]
 }
