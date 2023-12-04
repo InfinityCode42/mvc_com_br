@@ -41,7 +41,7 @@
 
 <script src="backoffice\src/public/assets/js/plugins/chartjs.min.js"></script>
 
-<script src="backoffice\src/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+<!-- <script src="backoffice\src/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script> -->
 
   <!-- SWEET ALERT -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -20,12 +20,11 @@
                         name="email">
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Senha" aria-label="Senha"
+                      <input type="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Senha"
                         name="senha">
                     </div>
                     <div class="text-center">
-                      <button type="button" id="btn-entrar"
-                        class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
+                      <button type="button" id="btn-entrar" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
                     </div>
                   </form>
                 </div>
@@ -44,10 +43,8 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div
-                class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
+            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
                 style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg'); background-size: cover;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
@@ -56,29 +53,24 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
   </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
   $(function () {
     $('#btn-entrar').click(function (e) {
       e.preventDefault();
       $.ajax({
         type: "POST",
-        url: "\\login",
-        async: false,
-        cache: false,
-        contentType: false,
-        processData: false,
+        url: "/login",
         dataType: 'json',
         data: new FormData(document.getElementById('form-login')),
         beforeSend: function () {
         },
         complete: function () {
-
         },
         success: function (response) {
           console.log(response);
@@ -92,7 +84,7 @@
           }
         },
         error: function (xhr, status, error) {
-          console.log('deu erro')
+          console.log('deu erro');
         }
       });
     });
