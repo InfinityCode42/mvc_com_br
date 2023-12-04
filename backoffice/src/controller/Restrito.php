@@ -3,7 +3,7 @@ namespace backoffice\src\controller;
 use backoffice\src\core\utils\utils;
 use backoffice\src\core\Core;
 
-class restrito{    
+class Restrito{    
     private $core;
     private $view;
     private $utils;
@@ -15,14 +15,13 @@ class restrito{
     }
     public function index()
     {
-        MontagemView::view("/restrito/login");
+        MontagemView::view("/Restrito/login");
     }
     public function cadastrar(){
-        MontagemView::view("/restrito/register");
+        MontagemView::view("/Restrito/register");
     }
     public function login()
     {
-        $this->core->pre($_POST);
         if (isset($_POST['email']) && isset($_POST['senha'])) {
             
             $verificar['email'] = $_POST['email'];

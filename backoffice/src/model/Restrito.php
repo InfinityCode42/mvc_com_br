@@ -1,7 +1,7 @@
 <?php
 include ('../core/core.php');
 
-class restrito {
+class Restrito {
 
     private string $email, $senha;
     private $core;

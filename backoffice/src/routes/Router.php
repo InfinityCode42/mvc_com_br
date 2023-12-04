@@ -26,11 +26,11 @@ function load(string $controller, string $action)
 
 $router = [
   "GET" => [
-    "/" => fn () => load("restrito", "index"),
-    "/cadastrar" => fn () => load("restrito", "cadastrar"),
+    "/" => fn () => load("Restrito", "index"),
+    "/cadastrar" => fn () => load("Restrito", "cadastrar"),
     "/dashboard" => fn () => load("Dashboard", "index"),
 
-    "/login" => fn () => load("restrito", "login"),
+    "/login" => fn () => load("Restrito", "login"),
 
     "/usuarios" => fn () => load("Usuarios", "index"),
     "/usuarios/cadastrar" => fn () => load("Usuarios", "cadastrar"),
@@ -46,8 +46,8 @@ $router = [
     "/alugar/ver" => fn () => load("Alugar", "ver"),
   ],
   "POST" => [
-    "/login" => fn () => load("restrito", "login"),
-    "/restrito/salvar" => fn () => load("restrito", "salvar"),
+    "/login" => fn () => load("Restrito", "login"),
+    "/Restrito/salvar" => fn () => load("Restrito", "salvar"),
 
     "/usuarios/salvar" => fn () => load("Usuarios", "salvar"),
     "/usuarios/alterar" => fn () => load("Usuarios", "alterar"),
