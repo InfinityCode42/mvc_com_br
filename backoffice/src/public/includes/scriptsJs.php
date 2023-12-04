@@ -1,3 +1,20 @@
+<script src="/backoffice/src/public/vendor/jquery/jquery.min.js"></script>
+
+<script src="/backoffice/src/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/backoffice/src/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<script src="/backoffice/src/public/assets/js/core/popper.min.js"></script>
+
+<script src="/backoffice/src/public/assets/js/core/bootstrap.min.js"></script>
+
+<script src="/backoffice/src/public/assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+<script src="/backoffice/src/public/assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+<script src="/backoffice/src/public/assets/js/plugins/chartjs.min.js"></script>
+
+<script src="/backoffice/src/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
 
 
 <script>

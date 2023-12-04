@@ -1,5 +1,5 @@
-<?php //include(__DIR__ . '/../../public/includes/head.php'); ?>
-[#placeholderHeader#]
+<?php include(__DIR__ . '/../../public/includes/head.php'); ?>
+<!-- [#placeholderHeader#] -->
 
 <body class="">
   <main class="main-content  mt-0">
@@ -56,25 +56,6 @@
       </div>
     </section>
   </main>
-
-  <script src="/../../public/vendor/jquery/jquery.min.js"></script>
-
-  <script src="/../../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <script src="/../../public/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <script src="/../../public/assets/js/core/popper.min.js"></script>
-
-  <script src="/../../public/assets/js/core/bootstrap.min.js"></script>
-
-  <script src="/../../public/assets/js/plugins/perfect-scrollbar.min.js"></script>
-
-  <script src="/../../public/assets/js/plugins/smooth-scrollbar.min.js"></script>
-
-  <script src="/../../public/assets/js/plugins/chartjs.min.js"></script>
-
-  <script src="/../../public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-
   
   <?php include(__DIR__ . '/../../public/includes/scriptsJS.php'); ?>
 </body>
@@ -84,7 +65,7 @@
             e.preventDefault();
             $.ajax({
                 type: "POST",
-                url: "/restrito/login",
+                url: "/login",
                 async: false,
                 cache: false,
                 contentType: false,
@@ -92,7 +73,7 @@
                 dataType: 'json',
                 data: new FormData(document.getElementById('form-login')),
                 beforeSend: function () {
-
+                  console.log(data);
                 },
                 complete: function () {
 
