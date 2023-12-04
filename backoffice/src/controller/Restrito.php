@@ -3,7 +3,7 @@ namespace backoffice\src\controller;
 use backoffice\src\core\utils\utils;
 use backoffice\src\core\Core;
 
-class Restrito{    
+class restrito{    
     private $core;
     private $view;
     private $utils;

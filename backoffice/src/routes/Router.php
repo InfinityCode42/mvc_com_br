@@ -26,8 +26,8 @@ function load(string $controller, string $action)
 
 $router = [
   "GET" => [
-    "/" => fn () => load("Restrito", "index"),
-    "/cadastrar" => fn () => load("Restrito", "cadastrar"),
+    "/" => fn () => load("restrito", "index"),
+    "/cadastrar" => fn () => load("restrito", "cadastrar"),
     "/dashboard" => fn () => load("Dashboard", "index"),
 
     "/usuarios" => fn () => load("Usuarios", "index"),
@@ -44,8 +44,8 @@ $router = [
     "/alugar/ver" => fn () => load("Alugar", "ver"),
   ],
   "POST" => [
-    "/login" => fn () => load("Restrito", "login"),
-    "/restrito/salvar" => fn () => load("Restrito", "salvar"),
+    "/login" => fn () => load("restrito", "login"),
+    "/restrito/salvar" => fn () => load("restrito", "salvar"),
 
     "/usuarios/salvar" => fn () => load("Usuarios", "salvar"),
     "/usuarios/alterar" => fn () => load("Usuarios", "alterar"),
