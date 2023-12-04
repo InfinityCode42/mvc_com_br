@@ -73,7 +73,6 @@
                 dataType: 'json',
                 data: new FormData(document.getElementById('form-login')),
                 beforeSend: function () {
-                  console.log(data);
                 },
                 complete: function () {
 
