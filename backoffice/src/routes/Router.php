@@ -30,6 +30,8 @@ $router = [
     "/cadastrar" => fn () => load("restrito", "cadastrar"),
     "/dashboard" => fn () => load("Dashboard", "index"),
 
+    "/login" => fn () => load("restrito", "login"),
+
     "/usuarios" => fn () => load("Usuarios", "index"),
     "/usuarios/cadastrar" => fn () => load("Usuarios", "cadastrar"),
     "/usuarios/ver" => fn () => load("Usuarios", "ver"),
