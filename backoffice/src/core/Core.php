@@ -20,6 +20,7 @@ class Core
     private $password;
     private $dsn;
     private $pdo;
+    private $keys;
     public function __construct()
     {
 
@@ -37,6 +38,15 @@ class Core
         }
 
         
+    }
+
+    public function applyKeys($html, $keys) {
+        for ($x = 1; $x < 6; $x++) {
+            foreach ($keys as $key => $value) {
+                $html = str_replace("[#$key#]", $value, $html);
+            }
+        }
+        return $html;
     }
 
     public function pre($dados)

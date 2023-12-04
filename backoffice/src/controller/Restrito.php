@@ -1,18 +1,21 @@
 <?php
 namespace backoffice\src\controller;
-
+use backoffice\src\core\utils\utils;
 use backoffice\src\core\Core;
 
 class Restrito{    
     private $core;
     private $view;
+    private $utils;
 
     public function __construct()
     {
         $this->core = new core;
+        $this->utils = new utils;
     }
     public function index()
     {
+        $this->core->applyKeys();
         MontagemView::view("/restrito/login");
     }
     public function cadastrar(){
@@ -20,6 +23,7 @@ class Restrito{
     }
     public function login()
     {
+        // $this->core->pre($_POST);
         if (isset($_POST['email']) && isset($_POST['senha'])) {
             
             $verificar['email'] = $_POST['email'];
