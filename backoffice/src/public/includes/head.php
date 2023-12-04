@@ -12,7 +12,7 @@
   </title>
   <!--     Fonts and icons     -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
   <!-- Nucleo Icons -->
@@ -23,6 +23,25 @@
   <link href="backoffice\src\public\assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="backoffice\src\public\assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <script src="/assets/js/core/popper.min.js"></script>
+
+  <script src="/assets/js/core/bootstrap.min.js"></script>
+
+  <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+  <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+  <script src="/assets/js/plugins/chartjs.min.js"></script>
+
+  <script src="/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
 
   <!-- SWEET ALERT -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
