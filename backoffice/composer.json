@@ -1,6 +1,9 @@
 {
     "name": "alexa/app",
     "autoload": {
+        "files": [
+            "src/routes/routers.php"
+        ],
         "psr-4": {
             "backoffice\\src\\": "src"
         }

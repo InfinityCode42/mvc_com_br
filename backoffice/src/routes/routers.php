@@ -1,4 +1,6 @@
+
 <?php 
+if (!function_exists('load')) {
 function load($controller,$action)
 {
     try {
@@ -20,9 +22,9 @@ function load($controller,$action)
 
     } catch (Exception $e) {
       error_log($e->getMessage());
-      // Exibir uma mensagem genérica para o usuário
       echo "Ocorreu um erro. Entre em contato com o suporte.";
     }
+}
 }
 
 $router = [
