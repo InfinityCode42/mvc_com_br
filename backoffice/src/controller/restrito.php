@@ -1,7 +1,7 @@
 <?php
 namespace backoffice\src\controller;
 use backoffice\src\core\utils\utils;
-use backoffice\src\core\core;
+use backoffice\src\core\Core;
 
 class restrito{    
     private $core;
@@ -10,7 +10,7 @@ class restrito{
 
     public function __construct()
     {
-        $this->core = new core;
+        $this->core = new Core;
         $this->utils = new utils;
     }
     public function index()
