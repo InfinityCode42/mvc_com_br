@@ -136,8 +136,8 @@
     <!-- Logout Modal-->
     
 
-    <?php include(__DIR__ . '/../../public/includes/includes/modal_logout.php'); ?>
-    <?php include(__DIR__ . '/../../public/includes/includes/scriptsJs.php'); ?>
+    <?php include(__DIR__ . '\..\../public/includes/includes/modal_logout.php'); ?>
+    <?php include(__DIR__ . '\..\../public/includes/includes/scriptsJs.php'); ?>
 
 </body>
 
