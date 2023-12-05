@@ -12,11 +12,11 @@ class Dashboard
     {
         $this->core = new core;
 
-        session_start();
-        if (empty($_SESSION)) {
-            session_destroy();
-            $this->core->redirect('/');
-        }
+       // session_start();
+       // if (empty($_SESSION)) {
+           // session_destroy();
+           // $this->core->redirect('/');
+        //}
     }
     public function index()
     {
