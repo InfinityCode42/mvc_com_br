@@ -1,6 +1,7 @@
 <?php
 require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/router.php';
+include ('.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php');
 
 
 if ($_SERVER['SERVER_NAME'] == 'novastack.tech') {
