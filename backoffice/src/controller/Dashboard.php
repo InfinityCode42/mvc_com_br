@@ -20,7 +20,7 @@ class dashboard
     }
     public function index()
     {
-        montagemview::view("dashboard/dashboard");
+        montagemview::view("/dashboard/dashboard");
     }
     public function destroy(){
         session_destroy();
