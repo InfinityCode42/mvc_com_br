@@ -3,7 +3,7 @@ function load(string $controller, string $action)
 {
     try {
         // se controller existe
-        $controllerNamespace = "backoffice" .  DIRECTORY_SEPARATOR. "src" .  DIRECTORY_SEPARATOR . "controller" . DIRECTORY_SEPARATOR. "{$controller}";
+        $controllerNamespace = "backoffice\\src\\controller\\{$controller}";
         var_dump(class_exists($controllerNamespace));
         if (!class_exists($controllerNamespace)) {
             throw new Exception("O controller {$controller} não existe");
