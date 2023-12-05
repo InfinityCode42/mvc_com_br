@@ -4,7 +4,6 @@ function load($controller,$action)
     try {
         // se controller existe
         $controllerNamespace = "backoffice\\src\\controller\\{$controller}";
-        var_dump(class_exists($controllerNamespace));
         if (!class_exists($controllerNamespace)) {
             throw new Exception("O controller {$controller} não existe");
         }
@@ -20,7 +19,9 @@ function load($controller,$action)
         $controllerInstance->$action((object) $_REQUEST);
 
     } catch (Exception $e) {
-        echo $e->getMessage();
+      error_log($e->getMessage());
+      // Exibir uma mensagem genérica para o usuário
+      echo "Ocorreu um erro. Entre em contato com o suporte.";
     }
 }
 
