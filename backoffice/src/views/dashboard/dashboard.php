@@ -144,8 +144,7 @@
 
   <?php include(__DIR__ . '/../../public/includes/configuracaovisual.php'); ?>
   <?php include(__DIR__ . '/../../public/includes/footer.php'); ?>
-  <?php include(__DIR__ . '/../../public/includes/scriptsJS.php'); ?>
-
+<script src="backoffice/src/public/includes/scripts.js"></script>
 </body>
 
 </html>
