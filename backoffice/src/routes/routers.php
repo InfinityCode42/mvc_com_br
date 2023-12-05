@@ -1,6 +1,6 @@
 
 <?php 
-if (!function_exists('load')) {
+
 function load($controller,$action)
 {
     try {
@@ -24,7 +24,6 @@ function load($controller,$action)
       error_log($e->getMessage());
       echo "Ocorreu um erro. Entre em contato com o suporte.";
     }
-}
 }
 
 $router = [
