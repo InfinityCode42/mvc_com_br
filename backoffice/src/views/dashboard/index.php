@@ -134,10 +134,6 @@
     </a>
 
     <!-- Logout Modal-->
-    
-
-    <?php include(__DIR__ . '\backoffice\src/public/includes/includes/modal_logout.php'); ?>
-    <?php include(__DIR__ . '\backoffice\src/public/includes/includes/scriptsJs.php'); ?>
 
 </body>
 
