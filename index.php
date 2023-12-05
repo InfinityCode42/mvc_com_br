@@ -1,6 +1,6 @@
 <?php
 require 'backoffice/vendor/autoload.php';
-require 'backoffice/src/routes/Router.php';
+require 'backoffice/src/routes/router.php';
 
 
 if ($_SERVER['SERVER_NAME'] == 'novastack.tech') {

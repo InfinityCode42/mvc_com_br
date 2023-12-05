@@ -1,9 +1,9 @@
 <?php
 namespace backoffice\src\controller;
 
-use backoffice\src\core\Core;
+use backoffice\src\core\core;
 
-class Dashboard
+class dashboard
 {
     private $core;
     private $view;
@@ -20,7 +20,7 @@ class Dashboard
     }
     public function index()
     {
-        MontagemView::view("dashboard/dashboard");
+        montagemview::view("dashboard/dashboard");
     }
     public function destroy(){
         session_destroy();

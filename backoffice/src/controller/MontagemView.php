@@ -1,10 +1,10 @@
 <?php
 namespace backoffice\src\controller;
-use backoffice\src\core\Core;
+use backoffice\src\core\core;
 
 use League\Plates\Engine;
 
-class MontagemView
+class montagemview
 {
   private $core;
   public static function view(string $view, array $data = [])

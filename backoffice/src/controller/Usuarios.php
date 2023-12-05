@@ -1,9 +1,9 @@
 <?php
 namespace backoffice\src\controller;
 
-use backoffice\src\core\Core;
+use backoffice\src\core\core;
 
-class Usuarios{
+class usuarios{
     private $core;
     private $view;
 
@@ -22,18 +22,18 @@ class Usuarios{
     public function index()
     {
 
-        $usuarios = $this->core->getData('usuario', 'id, nome, email, uf, tipo_usuario');
-        MontagemView::view("/usuarios/listar", ['usuarios' => $usuarios]);
+        $usuarios = $this->core->getData('usuarios', 'id, nome, email, uf, tipo_usuario');
+        montagemview::view("/usuarios/listar", ['usuarios' => $usuarios]);
     }
 
     public function cadastrar(){
         
-        MontagemView::view("/usuarios/cadastrar");
+        montagemview::view("/usuarios/cadastrar");
     }
     public function ver(){
         
         $usuario = $this->core->getData('usuario', 'id, nome, foto_perfil, email, cpf, uf, tel, idade, endereco, tipo_usuario', ['id' => $_GET['id']])[0];
-        MontagemView::view("/usuarios/ver", ['usuario' => $usuario]);
+        montagemview::view("/usuarios/ver", ['usuario' => $usuario]);
     }
     public function salvar(){
         

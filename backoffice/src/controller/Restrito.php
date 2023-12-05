@@ -1,9 +1,9 @@
 <?php
 namespace backoffice\src\controller;
 use backoffice\src\core\utils\utils;
-use backoffice\src\core\Core;
+use backoffice\src\core\core;
 
-class Restrito{    
+class restrito{    
     private $core;
     private $view;
     private $utils;
@@ -15,10 +15,10 @@ class Restrito{
     }
     public function index()
     {
-        MontagemView::view("/restrito/login");
+        montagemview::view("/restrito/login");
     }
     public function cadastrar(){
-        MontagemView::view("/restrito/register");
+        montagemview::view("/restrito/register");
     }
     public function login()
     {

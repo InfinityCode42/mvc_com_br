@@ -10,7 +10,7 @@ use const \USERNAME;
 use const \PASSWORD;
 use const \DATABASE;
 
-class Core
+class core
 {
 
 
