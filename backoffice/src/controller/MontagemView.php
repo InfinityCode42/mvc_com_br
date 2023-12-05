@@ -7,7 +7,7 @@ use League\Plates\Engine;
 class montagemview
 {
   private $core;
-  public static function view(string $view, array $data = [])
+  public static function view($view,$data = [])
   {
     $viewsPath = dirname(__FILE__, 2) . "/views";
 

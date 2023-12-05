@@ -1,5 +1,5 @@
 <?php 
-function load(string $controller, string $action)
+function load($controller,$action)
 {
     try {
         // se controller existe
