@@ -51,7 +51,7 @@
                 style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg'); background-size: cover;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Em um mundo tecnológico, a atenção é o novo recurso valioso."</h4>
-                <p class="text-white position-relative">Quanto mais suave parece, mais esforço foi investido nos bastidores</p>
+                <p class="text-white position-relative">Quanto mais fácil parece, mais esforço foi investido nos bastidores</p>
               </div>
             </div>
           </div>
