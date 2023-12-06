@@ -1,6 +1,6 @@
 <?php
 if($_SERVER['HTTP_HOST'] == 'www.novastack.tech') {
-    define('HOSTNAME', '127.0.0.1');
+    define('HOSTNAME', '193.203.175.53');
     define('PORT', '3306');
     define('USERNAME', 'u483821734_root');
     define('PASSWORD', 'ToBzdLV#XMQy8Aes');
