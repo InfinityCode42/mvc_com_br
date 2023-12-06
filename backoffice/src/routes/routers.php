@@ -30,7 +30,7 @@ $router = [
   "GET" => [
     "/" => fn () => load("Restrito", "index"),
     "/cadastrar" => fn () => load("Restrito", "cadastrar"),
-    "/dashboard" => fn () => load("dashboard", "index"),
+    "/dashboard" => fn () => load("Dashboard", "index"),
 
     "/login" => fn () => load("Restrito", "login"),
 
@@ -65,7 +65,7 @@ $router = [
 
   ],
   "DELETE" => [
-    "/dashboard/destroy" => fn () => load("dashboard", "destroy"),
+    "/dashboard/destroy" => fn () => load("Dashboard", "destroy"),
   ],
 
 ];

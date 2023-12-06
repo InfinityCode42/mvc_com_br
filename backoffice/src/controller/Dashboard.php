@@ -1,7 +1,7 @@
 <?php
 namespace backoffice\src\controller;
 
-use backoffice\src\core\core;
+use backoffice\src\core\Core;
 
 class Dashboard
 {
@@ -10,7 +10,7 @@ class Dashboard
 
     public function __construct()
     {
-        $this->core = new core;
+        $this->core = new Core;
 
        session_start();
        if (empty($_SESSION)) {
