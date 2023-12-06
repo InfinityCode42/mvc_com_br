@@ -28,7 +28,7 @@ function load($controller,$action)
 
 $router = [
   "GET" => [
-    "" => fn () => load("Restrito", "index"),
+    "/" => fn () => load("Restrito", "index"),
     "/cadastrar" => fn () => load("Restrito", "cadastrar"),
     "/dashboard" => fn () => load("Dashboard", "index"),
 
