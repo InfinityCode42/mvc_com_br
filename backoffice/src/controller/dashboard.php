@@ -1,7 +1,7 @@
 <?php
 namespace backoffice\src\controller;
 
-use backoffice\src\core\core;
+use backoffice\src\core\Core;
 
 class Dashboard
 {
