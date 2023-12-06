@@ -3,7 +3,7 @@ require 'backoffice/vendor/autoload.php';
 require 'backoffice/src/routes/routers.php';
 
 
-if ($_SERVER['SERVER_NAME'] == 'novastack.tech') {
+if ($_SERVER['HTTP_HOST'] == 'www.novastack.tech') {
   define('HOSTNAME', '127.0.0.1');
   define('PORT', '3306');
   define('USERNAME', 'u483821734_root');
@@ -11,7 +11,7 @@ if ($_SERVER['SERVER_NAME'] == 'novastack.tech') {
   define('DATABASE', 'u483821734_novastack');
 }
 
-if ($_SERVER['SERVER_NAME'] == 'localhost') {
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
   define('HOSTNAME', 'localhost');
   define('PORT', '3306');
   define('USERNAME', 'root');
