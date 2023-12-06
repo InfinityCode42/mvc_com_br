@@ -1,6 +1,6 @@
 <?php //include(__DIR__ . 'backoffice\src\config\public\includes\configuracaovisual.php'); ?>
 <script src="backoffice\src\config/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-<script src="<?php include('backoffice/src/config/public/includes/scripts.php') ?>"></script>
+
 <footer class="sticky-footer bg-gray-100 mb-2 mt-2">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
