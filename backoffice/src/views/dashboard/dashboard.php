@@ -1,13 +1,14 @@
-<?php include(__DIR__ . '/../../config/public/includes/head.php'); ?>
-<body class="g-sidenav-show   bg-gray-100">
+<?php include(__DIR__.'/../../config/public/includes/head.php'); ?>
+
+<body class="g-sidenav-show bg-gray-100">
 
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
-  <?php include(__DIR__ . '/../../config/public/includes/sidebar.php') ?>
+  <?php include(__DIR__.'/../../config/public/includes/sidebar.php') ?>
 
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
-    <?php include(__DIR__ . '/../../config/public/includes/navbar.php') ?>
+    <?php include(__DIR__.'/../../config/public/includes/navbar.php') ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -127,20 +128,18 @@
                 <div class="card-body p-3">
                   <div class="chart">
                     <canvas id="chart-line" class="chart-canvas" height="600"
-                      style="display: block; box-sizing: border-box; height: 300px; width: 572.8px;"
-                      width="1145"></canvas>
+                      style="display: block; box-sizing: border-box; height: 300px; width: 295px;" width="590"></canvas>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-5">
-            </div>
+            
           </div>
         </div>
       </div>
     </div>
   </main>
-  <?php include(__DIR__ . '/../../config/public/includes/footer.php'); ?>
+  <?php include(__DIR__.'/../../config/public/includes/footer.php'); ?>
 </body>
 
 </html>
