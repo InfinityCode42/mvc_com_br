@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="backoffice\src\public\assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="backoffice\src\public\assets/img/favicon.png">
   <title>
-    ForTechCode
+    Novastack | Soluções em TI
   </title>
   <!--     Fonts and icons     -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
