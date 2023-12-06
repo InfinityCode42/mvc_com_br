@@ -4,7 +4,7 @@ use backoffice\src\core\core;
 
 use League\Plates\Engine;
 
-class montagemview
+class MontagemView
 {
   private $core;
   public static function view($view,$data = [])

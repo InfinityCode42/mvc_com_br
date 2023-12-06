@@ -3,7 +3,7 @@ namespace backoffice\src\controller;
 
 use backoffice\src\core\core;
 
-class usuarios{
+class Usuarios{
     private $core;
     private $view;
 
@@ -23,17 +23,17 @@ class usuarios{
     {
 
         $usuarios = $this->core->getData('usuarios', 'id, nome, email, uf, tipo_usuario');
-        montagemview::view("/usuarios/listar", ['usuarios' => $usuarios]);
+        MontagemView::view("/usuarios/listar", ['usuarios' => $usuarios]);
     }
 
     public function cadastrar(){
         
-        montagemview::view("/usuarios/cadastrar");
+        MontagemView::view("/usuarios/cadastrar");
     }
     public function ver(){
         
         $usuario = $this->core->getData('usuario', 'id, nome, foto_perfil, email, cpf, uf, tel, idade, endereco, tipo_usuario', ['id' => $_GET['id']])[0];
-        montagemview::view("/usuarios/ver", ['usuario' => $usuario]);
+        MontagemView::view("/usuarios/ver", ['usuario' => $usuario]);
     }
     public function salvar(){
         

@@ -28,15 +28,15 @@ function load($controller,$action)
 
 $router = [
   "GET" => [
-    "/" => fn () => load("restrito", "index"),
-    "/cadastrar" => fn () => load("restrito", "cadastrar"),
+    "/" => fn () => load("Restrito", "index"),
+    "/cadastrar" => fn () => load("Restrito", "cadastrar"),
     "/dashboard" => fn () => load("dashboard", "index"),
 
-    "/login" => fn () => load("restrito", "login"),
+    "/login" => fn () => load("Restrito", "login"),
 
-    "/usuarios" => fn () => load("usuarios", "index"),
-    "/usuarios/cadastrar" => fn () => load("usuarios", "cadastrar"),
-    "/usuarios/ver" => fn () => load("usuarios", "ver"),
+    "/usuarios" => fn () => load("Usuarios", "index"),
+    "/usuarios/cadastrar" => fn () => load("Usuarios", "cadastrar"),
+    "/usuarios/ver" => fn () => load("Usuarios", "ver"),
     
 
     "/carros" => fn () => load("Carros", "index"),
@@ -48,12 +48,12 @@ $router = [
     "/alugar/ver" => fn () => load("Alugar", "ver"),
   ],
   "POST" => [
-    "/login" => fn () => load("restrito", "login"),
-    "/restrito/salvar" => fn () => load("restrito", "salvar"),
+    "/login" => fn () => load("Restrito", "login"),
+    "/restrito/salvar" => fn () => load("Restrito", "salvar"),
 
-    "/usuarios/salvar" => fn () => load("usuarios", "salvar"),
-    "/usuarios/alterar" => fn () => load("usuarios", "alterar"),
-    "/usuarios/remover" => fn () => load("usuarios", "remover"),
+    "/usuarios/salvar" => fn () => load("Usuarios", "salvar"),
+    "/usuarios/alterar" => fn () => load("Usuarios", "alterar"),
+    "/usuarios/remover" => fn () => load("Usuarios", "remover"),
     
     "/carros/salvar" => fn () => load("Carros", "salvar"),
     "/carros/alterar" => fn () => load("Carros", "alterar"),

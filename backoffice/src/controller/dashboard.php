@@ -3,7 +3,7 @@ namespace backoffice\src\controller;
 
 use backoffice\src\core\core;
 
-class dashboard
+class Dashboard
 {
     private $core;
     private $view;
