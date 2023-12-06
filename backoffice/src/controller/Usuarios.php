@@ -1,7 +1,7 @@
 <?php
 namespace backoffice\src\controller;
 
-use backoffice\src\controller\core\core;
+use backoffice\src\controller\core\Core;
 
 class Usuarios{
     private $core;
@@ -9,7 +9,7 @@ class Usuarios{
 
     public function __construct()
     {
-        $this->core = new core;
+        $this->core = new Core;
         session_start();
         if (empty($_SESSION)) {
             session_destroy();
