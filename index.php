@@ -1,7 +1,7 @@
 <?php
 require 'backoffice/vendor/autoload.php';
-require 'backoffice/src/routes/routers.php';
-require 'backoffice/src/database/db.php';
+require 'backoffice/src/config/routes/routers.php';
+require 'backoffice/src/config/database/db.php';
 
 try {
   $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

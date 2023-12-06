@@ -3,7 +3,7 @@
         'name' => 'alexa/app',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5a2860020a97b3e3325beb9cb01c871b54c834c6',
+        'reference' => 'b410b13c255c37f33014648f2d6b68b24dc6f44f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'alexa/app' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5a2860020a97b3e3325beb9cb01c871b54c834c6',
+            'reference' => 'b410b13c255c37f33014648f2d6b68b24dc6f44f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

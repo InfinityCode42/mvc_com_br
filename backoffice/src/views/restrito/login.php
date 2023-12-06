@@ -1,4 +1,4 @@
-<?php include(__DIR__ . '/../../public/includes/head.php'); ?>
+<?php include(__DIR__ . '/../../config/public/includes/head.php'); ?>
 <!-- [#placeholderHeader#] -->
 
 <body class="">

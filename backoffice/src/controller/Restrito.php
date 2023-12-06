@@ -1,6 +1,6 @@
 <?php
 namespace backoffice\src\controller;
-use backoffice\src\core\Core;
+use backoffice\src\controller\core\Core;
 
 class Restrito{    
     private $core;

@@ -22,26 +22,28 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="backoffice\src\public\assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="backoffice\src\public\assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="backoffice\src\config\public\assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 
   <!-- JavaScript -->
-  <script src="backoffice\src/public/vendor/jquery/jquery.min.js"></script>
+  <script src="backoffice\src\config/public/vendor/jquery/jquery.min.js"></script>
 
-  <script src="backoffice\src/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="backoffice\src\config/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script src="backoffice\src/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="backoffice\src\config/public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <script src="backoffice\src/public/assets/js/core/popper.min.js"></script>
+  <script src="backoffice\src\config/public/assets/js/core/popper.min.js"></script>
 
-  <script src="backoffice\src/public/assets/js/core/bootstrap.min.js"></script>
+  <script src="backoffice\src\config/public/assets/js/core/bootstrap.min.js"></script>
 
-  <script src="backoffice\src/public/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="backoffice\src\config/public/assets/js/plugins/perfect-scrollbar.min.js"></script>
 
-  <script src="backoffice\src/public/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="backoffice\src\config/public/assets/js/plugins/smooth-scrollbar.min.js"></script>
 
-  <script src="backoffice\src/public/assets/js/plugins/chartjs.min.js"></script>
+  <script src="backoffice\src\config/public/assets/js/plugins/chartjs.min.js"></script>
 
-  <script src="backoffice\src/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="backoffice\src\config/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+
+  <script src="backoffice/src/config/public/includes/scripts.js"></script>
 
   <!-- SWEET ALERT -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

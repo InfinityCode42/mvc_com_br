@@ -1,13 +1,13 @@
-<?php include(__DIR__ . '/../../public/includes/head.php'); ?>
+<?php include(__DIR__ . '/../../config/public/includes/head.php'); ?>
 <body class="g-sidenav-show   bg-gray-100">
 
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
-  <?php include(__DIR__ . '/../../public/includes/sidebar.php') ?>
+  <?php include(__DIR__ . '/../../config/public/includes/sidebar.php') ?>
 
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
-    <?php include(__DIR__ . '/../../public/includes/navbar.php') ?>
+    <?php include(__DIR__ . '/../../config/public/includes/navbar.php') ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -140,11 +140,7 @@
       </div>
     </div>
   </main>
-  
-
-  <?php include(__DIR__ . '/../../public/includes/configuracaovisual.php'); ?>
-  <?php include(__DIR__ . '/../../public/includes/footer.php'); ?>
-<script src="backoffice/src/public/includes/scripts.js"></script>
+  <?php include(__DIR__ . '/../../config/public/includes/footer.php'); ?>
 </body>
 
 </html>

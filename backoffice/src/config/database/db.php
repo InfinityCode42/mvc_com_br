@@ -7,15 +7,7 @@ if($_SERVER['HTTP_HOST'] == 'www.novastack.tech') {
     define('DATABASE', 'u483821734_novastack');
 }
 
-if($_SERVER['HTTP_HOST'] == 'localhost') {
-    define('HOSTNAME', 'localhost');
-    define('PORT', '3306');
-    define('USERNAME', 'root');
-    define('PASSWORD', 'root');
-    define('DATABASE', 'xandinhouiui');
-}
-
-if($_SERVER['HTTP_HOST'] == 'localhost.mac') {
+if($_SERVER['SERVER_NAME'] == 'localhost') {
     define('HOSTNAME', 'localhost');
     define('PORT', '3306');
     define('USERNAME', 'root');

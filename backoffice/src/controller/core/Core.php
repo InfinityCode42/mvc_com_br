@@ -1,6 +1,6 @@
 <?php
 
-namespace backoffice\src\core;
+namespace backoffice\src\controller\core;
 
 use \PDO;
 use \PDOException;
