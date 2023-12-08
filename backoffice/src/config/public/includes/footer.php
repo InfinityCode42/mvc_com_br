@@ -1,7 +1,7 @@
 <?php //include(__DIR__ . 'backoffice\src\config\public\includes\configuracaovisual.php'); ?>
 <script src="backoffice\src\config/public/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
 
-<footer class="sticky-footer bg-gray-100 mb-2 mt-2">
+<footer class="sticky-footer mb-2 mt-2" style="background: transparent">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             ©

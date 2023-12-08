@@ -23,7 +23,7 @@
   <link href="backoffice\src\public\assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="backoffice\src\config\public\assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
-
+  <link rel="stylesheet" href="backoffice\src\config\public/assets/css/style.css"/>
   <!-- JavaScript -->
   <script src="backoffice\src\config/public/vendor/jquery/jquery.min.js"></script>
 
@@ -40,7 +40,7 @@
   <script src="backoffice\src\config/public/assets/js/plugins/smooth-scrollbar.min.js"></script>
 
   <script src="backoffice\src\config/public/assets/js/plugins/chartjs.min.js"></script>
-  <script src="backoffice\src\config\public/assets/css/style.css"></script>
+  
 
   
   
