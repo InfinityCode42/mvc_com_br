@@ -11,12 +11,7 @@ class Dashboard
     public function __construct()
     {
         $this->core = new Core;
-
-       session_start();
-       if (empty($_SESSION)) {
-           session_destroy();
-           $this->core->redirect('/');
-        }
+        $this->core->verificaLogin();
     }
     public function index()
     {

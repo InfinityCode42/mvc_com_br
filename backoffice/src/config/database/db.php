@@ -12,7 +12,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost') {
     define('PORT', '3306');
     define('USERNAME', 'root');
     define('PASSWORD', 'root');
-    define('DATABASE', 'xandinhouiui');
+    define('DATABASE', 'novastack_com_br');
 }
 
 try {

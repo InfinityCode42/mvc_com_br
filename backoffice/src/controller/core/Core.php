@@ -37,10 +37,22 @@ class Core
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        
+
     }
 
-    public function applyKeys($html, $keys) {
+    public function verificaLogin()
+    {
+        session_start();
+        $join = 'INNER JOIN usuarios_autenticados AS usu_aut ON usu_aut.usuario_id = a.id';
+        $verifica = $this->getData('usuarios', 'a.id, email, usu_aut.usuario_id, usu_aut.token', ['a.id' => $_SESSION['id']], '', $join);
+        if (isset($verifica[0]['token']) == '') {
+            session_destroy();
+            $this->redirect('/');
+        }
+    }
+
+    public function applyKeys($html, $keys)
+    {
         for ($x = 1; $x < 6; $x++) {
             foreach ($keys as $key => $value) {
                 $html = str_replace("[#$key#]", $value, $html);
@@ -93,53 +105,53 @@ class Core
 
 
     public function getData($table, $columns = '', $where = [], $order = '', $join = '')
-{
-    if ($order == '') {
-        $order = 'DESC';
-    }
+    {
+        if ($order == '') {
+            $order = 'DESC';
+        }
 
-    try {
-        if ($columns == '') {
-            $query = "SELECT * FROM $table";
-        } elseif ($where == '') {
-            $query = "SELECT $columns FROM $table ORDER BY id $order";
-        } else {
-            $whereClause = '';
+        try {
+            if ($columns == '') {
+                $query = "SELECT * FROM $table AS a";
+            } elseif ($where == '') {
+                $query = "SELECT $columns FROM $table AS a ORDER BY id $order";
+            } else {
+                $whereClause = '';
+                if (!empty($where)) {
+                    $whereClause = 'WHERE ';
+                    $i = 0;
+                    foreach ($where as $key => $value) {
+                        if ($i > 0) {
+                            $whereClause .= " AND $key = :key$i";
+                        } else {
+                            $whereClause .= "$key = :key$i";
+                        }
+                        $i++;
+                    }
+                }
+
+                $joinClause = ($join != '') ? "$join " : '';
+                $query = "SELECT $columns FROM $table AS a $joinClause $whereClause ORDER BY ID $order";
+            }
+
+            $stmt = $this->pdo->prepare($query);
+
             if (!empty($where)) {
-                $whereClause = 'WHERE ';
                 $i = 0;
                 foreach ($where as $key => $value) {
-                    if ($i > 0) {
-                        $whereClause .= " AND $key = :key$i";
-                    } else {
-                        $whereClause .= "$key = :key$i";
-                    }
+                    $stmt->bindValue(":key$i", $value);
                     $i++;
                 }
             }
 
-            $joinClause = ($join != '') ? "$join " : '';
-            $query = "SELECT $columns FROM $table $joinClause $whereClause ORDER BY ID $order";
+            $stmt->execute();
+            $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $dados;
+        } catch (PDOException $error) {
+            echo "Erro: " . $error->getMessage();
+            return false;
         }
-
-        $stmt = $this->pdo->prepare($query);
-
-        if (!empty($where)) {
-            $i = 0;
-            foreach ($where as $key => $value) {
-                $stmt->bindValue(":key$i", $value);
-                $i++;
-            }
-        }
-
-        $stmt->execute();
-        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $dados;
-    } catch (PDOException $error) {
-        echo "Erro: " . $error->getMessage();
-        return false;
     }
-}
 
 
     public function addData($table, $data = [])
@@ -172,55 +184,67 @@ class Core
             $setClause = "";
             $params = [];
             $index = 1;
-    
+
             foreach ($data as $column => $value) {
                 $setClause .= "$column = :param$index";
                 $params[":param$index"] = $value;
                 $index++;
-    
+
                 if ($index <= count($data)) {
                     $setClause .= ", ";
                 }
             }
-    
+
             $whereClause = "";
             $whereParams = [];
             $index = 1;
             $whereParam = "whereParam";
-    
+
             foreach ($where as $column => $value) {
                 $whereClause .= "$column = :$whereParam$index";
                 $whereParams[":$whereParam$index"] = $value;
                 $index++;
-    
+
                 if ($index <= count($where)) {
                     $whereClause .= " AND ";
                 }
             }
-    
+
             $query = "UPDATE $table SET $setClause WHERE $whereClause";
             $statement = $this->pdo->prepare($query);
             $statement->execute($params + $whereParams);
-    
+
             return true;
         } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
             return false;
         }
     }
-    
 
 
-    public function removeData($table, $data)
+
+    public function removeData($table, $where)
     {
         try {
-            $query = "DELETE FROM $table WHERE id = $data;";
+            $whereClause = '';
+            foreach ($where as $key => $value) {
+                if ($whereClause !== '') {
+                    $whereClause .= ' AND ';
+                }
+                $whereClause .= "$key = :$key";
+            }
+            $query = "DELETE FROM $table WHERE $whereClause";
+            $stmt = $this->pdo->prepare($query);
+            foreach ($where as $key => $value) {
+                $stmt->bindValue(":$key", $value);
+            }
+            $stmt->execute();
 
-            $this->pdo->exec($query);
             return true;
         } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
             return false;
         }
     }
+
 }

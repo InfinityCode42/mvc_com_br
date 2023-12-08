@@ -40,6 +40,7 @@
   <script src="backoffice\src\config/public/assets/js/plugins/smooth-scrollbar.min.js"></script>
 
   <script src="backoffice\src\config/public/assets/js/plugins/chartjs.min.js"></script>
+  <script src="backoffice\src\config\public/assets/css/style.css"></script>
 
   
   
