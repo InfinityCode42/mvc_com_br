@@ -1,119 +1,77 @@
-<?php include(__DIR__ . '/../includes/head.php'); ?>
+<?php include(__DIR__ . '/../../config/public/includes/head.php'); ?>
 
-<body id="page-top">
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-primary position-absolute w-100"></div>
+  <?php $ativo = "active";?>
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+  <?php include(__DIR__ . '/../../config/public/includes/sidebar.php') ?>
 
-        <!-- Sidebar -->
-        <?php include(__DIR__ . '/../includes/sidebar.php') ?>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <?php include(__DIR__ . '/../includes/navbar_cliente.php') ?>
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 text-titulo">Usuarios</h1>
-                        <a href="/usuarios/cadastrar" class="btn btn-primary"><i class="fa fa-plus"></i> Cadastrar</a>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <table class="table text-center table-striped-columns">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#ID</th>
-                                                <th scope="col">Nome</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">UF</th>
-                                                <th scope="col">Tipo do usuario</th>
-                                                <th scope="col">Ação</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($usuarios as $usuario): ?>
-                                                <tr>
-                                                    <th scope="row">
-                                                        <?php echo $usuario['id']; ?>
-                                                    </th>
-                                                    <td>
-                                                        <?php echo $usuario['nome']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $usuario['email']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $usuario['uf']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $usuario['tipo_usuario']; ?>
-                                                    </td>
-                                                    <td class="d-flex align-items-center justify-content-center">
-                                                        <a class="btn btn-primary" href="/usuarios/ver?id=<?php echo $usuario['id']; ?>">
-                                                            Ver
-                                                        </a>
-                                                        <form  id="form-remover">
-                                                            <input type="hidden" name="remover" value="<?php echo $usuario['id']; ?>">
-                                                        </form>
-                                                        <a class="btn btn-danger ml-2" id="btn-remover">
-                                                            Excluir
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <main class="main-content position-relative border-radius-lg ">
+    <!-- Navbar -->
+    <?php include(__DIR__ . '/../../config/public/includes/navbar.php') ?>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header pb-0">
+                  <h6>Authors table</h6>
                 </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                      <thead>
+                        <tr>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                          <th class="text-secondary opacity-7"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div>
+                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                              </div>
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">John Michael</h6>
+                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0">Manager</p>
+                            <p class="text-xs text-secondary mb-0">Organization</p>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="badge badge-sm bg-gradient-success">Online</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                          </td>
+                          <td class="align-middle">
+                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                              Edit
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <?php include(__DIR__ . '/../includes/scriptsJs.php'); ?>
+  </main>
+
+  <?php include(__DIR__ . '/../../config/public/includes/footer.php'); ?>
 </body>
-
-<script>
-    $(function () {
-        $('#btn-remover').click(function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "/usuarios/remover",
-                async: false,
-                cache: false,
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                data: new FormData(document.getElementById('form-remover')),
-                beforeSend: function () {
-
-                },
-                complete: function () {
-
-                },
-                success: function (response) {
-                    console.log(response);
-                    if (response.status == 'success') {
-                        Swal.fire(response.title, response.message, response.status);
-                        setTimeout(() => {
-                            window.location.href = '/usuarios';
-                        }, 1500);
-                    } else {
-                        Swal.fire(response.title, response.message, response.status);
-                    }
-                }
-            });
-        });
-    });
-</script>
+</html>

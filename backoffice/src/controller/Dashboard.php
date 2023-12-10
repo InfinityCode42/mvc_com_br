@@ -12,6 +12,7 @@ class Dashboard
     {
         $this->core = new Core;
         $this->core->verificaLogin();
+        $this->core->verModulos();
     }
     public function index()
     {

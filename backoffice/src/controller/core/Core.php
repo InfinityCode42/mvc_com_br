@@ -20,7 +20,6 @@ class Core
     private $password;
     private $dsn;
     private $pdo;
-    private $keys;
     public function __construct()
     {
 
@@ -44,22 +43,13 @@ class Core
     {
         session_start();
         $join = 'INNER JOIN usuarios_autenticados AS usu_aut ON usu_aut.usuario_id = a.id';
-        $verifica = $this->getData('usuarios', 'a.id, email, usu_aut.usuario_id, usu_aut.token', ['a.id' => $_SESSION['id']], '', $join);
+        $verifica = $this->getData('usuarios', 'a.id, email, usu_aut.usuario_id, usu_aut.token', ['a.id' => $_SESSION['usuario_id']], '', $join);
         if (isset($verifica[0]['token']) == '') {
             session_destroy();
             $this->redirect('/');
         }
     }
 
-    public function applyKeys($html, $keys)
-    {
-        for ($x = 1; $x < 6; $x++) {
-            foreach ($keys as $key => $value) {
-                $html = str_replace("[#$key#]", $value, $html);
-            }
-        }
-        return $html;
-    }
 
     public function pre($dados)
     {
@@ -77,16 +67,53 @@ class Core
     }
     public function redirect($link, $status = "", $title = "", $message = "")
     {
-        if ($status != "") {
-
-            $_SESSION['toast']['status'] = $status;
-            $_SESSION['toast']['title'] = $title;
-            $_SESSION['toast']['message'] = $message;
-        }
         header('location:' . $link);
-
         exit;
     }
+
+    public function verModulos()
+    {
+        $usuario = $this->getData('usuarios', 'id, modulos', ['id' => $_SESSION['usuario_id']]);
+        $array_modulos_usuario = explode(",", $usuario[0]['modulos']);
+
+        $modulos = array();
+
+        foreach ($array_modulos_usuario as $id) {
+            $modulo = $this->getData('modulos', '*', ['id' => $id]);
+            $modulos[] = $modulo;
+        }
+
+        $modulos_liberados = array();
+
+        foreach ($modulos as $key => $value) {
+            $modulo_liberado = array();
+            foreach ($value as $chave => $valor) {
+                $modulo_liberado['id'] = $valor['id'];
+                $modulo_liberado['rota'] = $valor['rota'];
+                $modulo_liberado['ordem'] = $valor['ordem'];
+                $modulo_liberado['status'] = $valor['status'];
+                $modulo_liberado['label'] = $valor['label'];
+                $modulo_liberado['icone'] = $valor['icone'];
+            }
+            $modulo_liberado['active'] = ($valor['rota'] === $_SERVER['REQUEST_URI']) ? 'active' : '';
+
+            $modulos_liberados[] = $modulo_liberado;
+        }
+        $item = '';
+        foreach ($modulos_liberados as $key => $value) {
+            $item .= "<li class='nav-item'>
+                <a class='nav-link  $value[active]' href='$value[rota]'>
+                  <div class='icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center'>
+                    $value[icone]
+                  </div>
+                  <span class='nav-link-text ms-1'>$value[label]</span>
+                </a>
+              </li>";
+        }
+        return $item;
+    }
+
+
     function salvarImagemCliente($arquivo)
     {
         if ($arquivo['error'] != UPLOAD_ERR_OK) {

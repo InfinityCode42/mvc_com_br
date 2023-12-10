@@ -27,7 +27,7 @@ class Restrito
 
             if (!empty($verificar)) {
 
-                $colunas = 'id, email, cpf, uf, tel,senha, idade, endereco, nome, tipo_usuario';
+                $colunas = 'id, email, cpf, uf, tel,senha, idade, endereco, nome, tipo_usuario, modulos';
                 $usuario = $this->core->getData('usuarios', $colunas, ['email' => $verificar['email']]);
 
                 if (empty($usuario)) {
@@ -36,15 +36,15 @@ class Restrito
                     if (password_verify($_POST['senha'], $usuario[0]['senha'])) {
 
                         session_start();
-                        $_SESSION['id'] = $usuario[0]['id'];
-                        $_SESSION['email'] = $usuario[0]['email'];
-                        $_SESSION['nome'] = $usuario[0]['nome'];
-                        $_SESSION['uf'] = $usuario[0]['uf'];
-                        $_SESSION['tel'] = $usuario[0]['tel'];
-                        $_SESSION['idade'] = $usuario[0]['idade'];
-                        $_SESSION['tipo_usuario'] = $usuario[0]['tipo_usuario'];
-                        $_SESSION['endereco'] = $usuario[0]['endereco'];
-                        $_SESSION['cpf'] = $usuario[0]['cpf'];
+                        $_SESSION['usuario_id']     = $usuario[0]['id'];
+                        $_SESSION['email']          = $usuario[0]['email'];
+                        $_SESSION['nome']           = $usuario[0]['nome'];
+                        $_SESSION['uf']             = $usuario[0]['uf'];
+                        $_SESSION['tel']            = $usuario[0]['tel'];
+                        $_SESSION['idade']          = $usuario[0]['idade'];
+                        $_SESSION['tipo_usuario']   = $usuario[0]['tipo_usuario'];
+                        $_SESSION['endereco']       = $usuario[0]['endereco'];
+                        $_SESSION['cpf']            = $usuario[0]['cpf'];
 
 
                         $res = $this->gerarHash($usuario[0]['id'], $usuario[0], $_SERVER['REMOTE_ADDR']);
