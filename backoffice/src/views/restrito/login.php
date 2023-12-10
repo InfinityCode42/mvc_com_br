@@ -80,10 +80,19 @@
         success: function (response) {
           console.log(response);
           if (response.status == 'success') {
-            Swal.fire(response.title, response.message, response.status);
+
+            const swalConfig = {
+              title: response.title,
+              text: response.message,
+              icon: response.status,
+              showConfirmButton: false
+            };
+
+            Swal.fire(swalConfig);
+
             setTimeout(() => {
               window.location.href = '/dashboard';
-            }, 1500);
+            }, 1000);
           } else {
             Swal.fire(response.title, response.message, response.status);
           }
