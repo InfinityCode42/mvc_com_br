@@ -20,7 +20,8 @@ class Usuarios{
     public function index()
     {
 
-        $usuarios = $this->core->getData('usuarios', 'id, nome, email, uf, tipo_usuario');
+        $usuarios = $this->core->getData('usuarios', 'id, foto_perfil, nome, email, uf, tipo_usuario, status');
+        // $this->core->pre($usuarios);
         MontagemView::view("/usuarios/listar", ['usuarios' => $usuarios]);
     }
 
