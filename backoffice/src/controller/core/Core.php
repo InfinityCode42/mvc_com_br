@@ -49,6 +49,27 @@ class Core
             $this->redirect('/');
         }
     }
+    public function verificaModulos() {
+        // $req = $_SERVER['REQUEST_URI'];
+        // $rota = $this->getData('modulos', 'id, rota', ['rota' => $req]);
+        // $usuario = $this->getData('usuarios', 'id, modulos', ['id' => $_SESSION['usuario_id']]);
+        
+        // $explode_modulos = explode(',', $usuario[0]['modulos']);
+        // foreach ($rota as $key => $value) {
+        //     $rota_atual['rotas'] = $value['id'];
+        //     $rota_atual['solicitada'] = $explode_modulos[$key];
+        // }
+        
+        // if( $rota_atual['rotas'] == $rota_atual['solicitada']){
+        //     $redirecionar = $this->getData('modulos', 'id, rota', ['id' => $rota_atual['solicitada']]);
+        //     $this->redirect($redirecionar[0]['rota']);
+        // } else {
+        //     echo "O usuário NÃO tem acesso à rota $rota_atual";
+        // }
+        
+    }
+
+
 
 
     public function pre($dados)

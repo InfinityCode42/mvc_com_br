@@ -10,18 +10,14 @@ class Usuarios{
     public function __construct()
     {
         $this->core = new Core;
-        session_start();
-        if (empty($_SESSION)) {
-            session_destroy();
-            $this->core->redirect('/');
-        }
+        $this->core->verificaLogin();
+        $this->core->verificaModulos();
         
     }
     public function index()
     {
 
         $usuarios = $this->core->getData('usuarios', 'id, foto_perfil, nome, email, uf, tipo_usuario, status');
-        // $this->core->pre($usuarios);
         MontagemView::view("/usuarios/listar", ['usuarios' => $usuarios]);
     }
 
