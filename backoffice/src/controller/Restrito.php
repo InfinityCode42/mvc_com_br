@@ -32,7 +32,7 @@ class Restrito
                 $usuario = $this->core->getData('usuarios', $colunas, ['email' => $verificar['email']]);
 
                 if (empty($usuario)) {
-                    $this->core->return('error', 'Erro', 'Email ou senha incorretos!!', '');
+                    $this->core->return('error', 'Erro', 'Email ou senha incorretos!!', '', 1008);
                 } else {
                     if (password_verify($_POST['senha'], $usuario[0]['senha'])) {
 
@@ -50,10 +50,10 @@ class Restrito
 
                         $res = $this->core->gerarToken($_SESSION['usuario_id'], $usuario[0], $_SERVER['REMOTE_ADDR']);
                         if ($res == 1) {
-                            $this->core->return('success', 'Sucesso', 'Login realizado com sucesso!!', '');
+                            $this->core->return('success', 'Sucesso', 'Login realizado com sucesso!!', '', 200);
                         }
                     } else {
-                        $this->core->return('error', 'Erro', 'Email ou senha incorretos!!', '');
+                        $this->core->return('error', 'Erro', 'Email ou senha incorretos!!', '', 1008);
                     }
                 }
 

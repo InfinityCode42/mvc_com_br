@@ -1,6 +1,7 @@
 <?php
 
 namespace backoffice\src\controller\core;
+
 use Exception;
 use Firebase\JWT\JWT;
 
@@ -42,14 +43,18 @@ class Core
 
     }
 
+    /**
+     * Verifica se o usuario possui sessão ativa e se possui um token válido]
+     * caso não favoreça essa condições, ele redireciona pro login
+     */
+
     public function verificaLogin()
     {
         session_start();
-        // $this->pre($_SESSION);
-        if(isset($_SESSION['usuario_id']) && ($_SESSION['usuario_id'] != null || $_SESSION['usuario_id'] != "")) {
+        if (isset($_SESSION['usuario_id']) && ($_SESSION['usuario_id'] != null || $_SESSION['usuario_id'] != "")) {
 
             $verifica = $this->getData('usuarios_autenticados', 'usuario_id, token, data', ['usuario_id' => $_SESSION['usuario_id']]);
-            
+
             if (!empty($verifica)) {
 
                 $token = $this->verificaToken($verifica[0]['token']);
@@ -60,29 +65,30 @@ class Core
                     $this->redirect('/');
                 }
             }
-        }else{
-            $this->redirect('/');        
+        } else {
+            $this->redirect('/');
         }
     }
-    
-    public function verificaModulos() {
+
+    public function verificaModulos()
+    {
         // $req = $_SERVER['REQUEST_URI'];
         // $rota = $this->getData('modulos', 'id, rota', ['rota' => $req]);
         // $usuario = $this->getData('usuarios', 'id, modulos', ['id' => $_SESSION['usuario_id']]);
-        
+
         // $explode_modulos = explode(',', $usuario[0]['modulos']);
         // foreach ($rota as $key => $value) {
         //     $rota_atual['rotas'] = $value['id'];
         //     $rota_atual['solicitada'] = $explode_modulos[$key];
         // }
-        
+
         // if( $rota_atual['rotas'] == $rota_atual['solicitada']){
         //     $redirecionar = $this->getData('modulos', 'id, rota', ['id' => $rota_atual['solicitada']]);
         //     $this->redirect($redirecionar[0]['rota']);
         // } else {
         //     echo "O usuário NÃO tem acesso à rota $rota_atual";
         // }
-        
+
     }
 
     public function pre($dados)
@@ -93,12 +99,36 @@ class Core
         die();
     }
 
-    public function return ($status, $title = '', $message = '', $data = [])
+    /**
+     * Retorna uma resposta formatada em JSON, indicando o status da operação.
+     *
+     * @param string $status    Status da operação, pode ser 'success' ou 'error'.
+     * @param string $title     Título da resposta, por exemplo, 'Success', 'Error', 'Warning'.
+     * @param string $message   Mensagem de retorno detalhando a operação.
+     * @param array  $data      Array de dados adicionais relacionados à operação.
+     * @param string|int $codigo Código de erro associado à operação (opcional).
+     *                          Lista de códigos de erro pré-definidos (significado dos códigos):
+     *                          - 001: JWT Token não está sendo gerado.
+     *                          - 002: JWT Token não está sendo alterado.
+     *                          - 1001: erro ao processar dados.
+     *                          - 1002: A requisição enviada é inválida ou incompleta.
+     *                          - 1003: Você não possui permissão para executar esta operação.
+     *                          - 1004: Um ou mais parâmetros necessários não foram fornecidos.
+     *                          - 1005: Os dados fornecidos não estão no formato esperado.
+     *                          - 1006: O recurso solicitado não foi encontrado.
+     *                          - 1007: Os dados fornecidos excedem o limite permitido.
+     *                          - 1008: A autenticação do usuário falhou.
+     *                          - 1009: Houve um erro ao tentar se conectar ao servidor.
+     *                          - 1010: Esta operação não é permitida no momento.
+     * @return void
+     */
+    public function return($status, $title = '', $message = '', $data = [], $codigo = '')
     {
-        $response = json_encode(['status' => $status, 'title' => $title, 'message' => $message, 'data' => $data]);
+        $response = json_encode(['status' => $status, 'title' => $title, 'message' => $message, 'data' => $data, 'codigo' => $codigo]);
         echo $response;
         exit;
     }
+
     public function redirect($link, $status = "", $title = "", $message = "")
     {
         header('location:' . $link);
@@ -309,20 +339,20 @@ class Core
             'audience' => 'novastack',
             'expires' => strtotime('+1 day')
         ];
-    
+
         $arrayDados['usuario_id'] = $usuario_id;
         $arrayDados['ip'] = $ip_usuario;
-    
+
         $token = JWT::encode($arrayDados, JWT_KEY, 'HS256');
         $auth = $this->getData('usuarios_autenticados', "token, usuario_id, data", ['usuario_id' => $usuario_id]);
-    
+
         if (!empty($auth)) {
             $alterar['data'] = date('Y-m-d', $jwtConfig['expires']);
             $atualizar = $this->alterData('usuarios_autenticados', $alterar, ['usuario_id' => $usuario_id]);
-            
+
             if ($atualizar != '1') {
-                $this->return('error', 'Erro', 'Não foi possível atualizar o token.');
-                return false; 
+                $this->return('error', 'Erro', 'Realizar o login!!! tente novamente!!!', '', 002);
+                return false;
             }
             return true;
         }
@@ -333,15 +363,16 @@ class Core
             'data' => date('Y-m-d H:i:s', $jwtConfig['expires'])
         ];
         $res = $this->addData('usuarios_autenticados', $autenticacao);
-    
+
         if ($res !== 1) {
-            return $this->return('error', 'Erro', 'Não foi possível adicionar o token.');
+            return $this->return('error', 'Erro', 'Realizar o login!!! tente novamente!!!', '', 001);
         }
-    
+
         return true;
     }
 
-    public function verificaToken($token){
+    public function verificaToken($token)
+    {
         try {
             $key = JWT_KEY;
             JWT::decode($token, new Key($key, 'HS256'));
@@ -353,6 +384,6 @@ class Core
         }
     }
 
-   
+
 
 }
