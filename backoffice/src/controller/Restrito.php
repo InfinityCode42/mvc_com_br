@@ -1,6 +1,7 @@
 <?php
 namespace backoffice\src\controller;
 
+use Firebase\JWT\JWT;
 use backoffice\src\controller\core\Core;
 
 class Restrito
@@ -15,7 +16,7 @@ class Restrito
     }
     public function index()
     {
-        
+
         MontagemView::view("/restrito/login");
     }
     public function login()
@@ -36,18 +37,18 @@ class Restrito
                     if (password_verify($_POST['senha'], $usuario[0]['senha'])) {
 
                         session_start();
-                        $_SESSION['usuario_id']     = $usuario[0]['id'];
-                        $_SESSION['email']          = $usuario[0]['email'];
-                        $_SESSION['nome']           = $usuario[0]['nome'];
-                        $_SESSION['uf']             = $usuario[0]['uf'];
-                        $_SESSION['tel']            = $usuario[0]['tel'];
-                        $_SESSION['idade']          = $usuario[0]['idade'];
-                        $_SESSION['tipo_usuario']   = $usuario[0]['tipo_usuario'];
-                        $_SESSION['endereco']       = $usuario[0]['endereco'];
-                        $_SESSION['cpf']            = $usuario[0]['cpf'];
+                        $_SESSION['usuario_id'] = $usuario[0]['id'];
+                        $_SESSION['email'] = $usuario[0]['email'];
+                        $_SESSION['nome'] = $usuario[0]['nome'];
+                        $_SESSION['uf'] = $usuario[0]['uf'];
+                        $_SESSION['tel'] = $usuario[0]['tel'];
+                        $_SESSION['idade'] = $usuario[0]['idade'];
+                        $_SESSION['tipo_usuario'] = $usuario[0]['tipo_usuario'];
+                        $_SESSION['endereco'] = $usuario[0]['endereco'];
+                        $_SESSION['cpf'] = $usuario[0]['cpf'];
 
 
-                        $res = $this->gerarHash($usuario[0]['id'], $usuario[0], $_SERVER['REMOTE_ADDR']);
+                        $res = $this->core->gerarToken($_SESSION['usuario_id'], $usuario[0], $_SERVER['REMOTE_ADDR']);
                         if ($res == 1) {
                             $this->core->return('success', 'Sucesso', 'Login realizado com sucesso!!', '');
                         }
@@ -60,38 +61,5 @@ class Restrito
         }
     }
 
-    function gerarHash($usuario_id, $arrayDados, $ip_usuario)
-    {
-        $dadosJson = json_encode($arrayDados);
-        $hash = hash('sha256', $dadosJson);
-
-        $hoje = date('Y-m-d');
-
-        $auth = $this->core->getData('usuarios_autenticados', "token, usuario_id, data", ['usuario_id' => $usuario_id, 'token' => $hash]);
-
-        if (empty($auth) || ($auth[0]['data'] < $hoje) || ($auth[0]['data'] == $hoje)) {
-
-            $remove = $this->core->removeData('usuarios_autenticados', ['token' => $hash, 'usuario_id' => $usuario_id]);
-            if ($remove != 1) {
-                $this->core->return('error', 'Erro', 'Não foi possível concluir o login nesse momento, tente novamente mais tarde!!!');
-            }
-
-            $autenticacao = [
-                'usuario_id' => $usuario_id,
-                'token' => $hash,
-                'ip' => $ip_usuario,
-                'data' => $hoje
-            ];
-
-            $res = $this->core->addData('usuarios_autenticados', $autenticacao);
-
-            if ($res != 1) {
-                $this->core->return('error', 'Erro', 'Não foi possível concluir o login nesse momento, tente novamente mais tarde!!!');
-                return false;
-            }
-        }
-
-        return true;
-    }
-
+    
 }

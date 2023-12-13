@@ -1,7 +1,10 @@
 <?php
 
 namespace backoffice\src\controller\core;
+use Exception;
+use Firebase\JWT\JWT;
 
+use Firebase\JWT\Key;
 use \PDO;
 use \PDOException;
 use const \HOSTNAME;
@@ -42,13 +45,26 @@ class Core
     public function verificaLogin()
     {
         session_start();
-        $join = 'INNER JOIN usuarios_autenticados AS usu_aut ON usu_aut.usuario_id = a.id';
-        $verifica = $this->getData('usuarios', 'a.id, email, usu_aut.usuario_id, usu_aut.token', ['a.id' => $_SESSION['usuario_id']], '', $join);
-        if (isset($verifica[0]['token']) == '') {
-            session_destroy();
-            $this->redirect('/');
+        // $this->pre($_SESSION);
+        if(isset($_SESSION['usuario_id']) && ($_SESSION['usuario_id'] != null || $_SESSION['usuario_id'] != "")) {
+
+            $verifica = $this->getData('usuarios_autenticados', 'usuario_id, token, data', ['usuario_id' => $_SESSION['usuario_id']]);
+            
+            if (!empty($verifica)) {
+
+                $token = $this->verificaToken($verifica[0]['token']);
+
+                if ($token != true) {
+
+                    session_destroy();
+                    $this->redirect('/');
+                }
+            }
+        }else{
+            $this->redirect('/');        
         }
     }
+    
     public function verificaModulos() {
         // $req = $_SERVER['REQUEST_URI'];
         // $rota = $this->getData('modulos', 'id, rota', ['rota' => $req]);
@@ -68,9 +84,6 @@ class Core
         // }
         
     }
-
-
-
 
     public function pre($dados)
     {
@@ -134,7 +147,6 @@ class Core
         return $item;
     }
 
-
     function salvarImagemCliente($arquivo)
     {
         if ($arquivo['error'] != UPLOAD_ERR_OK) {
@@ -150,7 +162,6 @@ class Core
 
         return $nomeArquivo;
     }
-
 
     public function getData($table, $columns = '', $where = [], $order = '', $join = '')
     {
@@ -200,7 +211,6 @@ class Core
             return false;
         }
     }
-
 
     public function addData($table, $data = [])
     {
@@ -268,9 +278,6 @@ class Core
             return false;
         }
     }
-
-
-
     public function removeData($table, $where)
     {
         try {
@@ -294,5 +301,58 @@ class Core
             return false;
         }
     }
+
+    function gerarToken($usuario_id, $arrayDados, $ip_usuario)
+    {
+        $jwtConfig = [
+            'issuer' => 'novastack_com_br',
+            'audience' => 'novastack',
+            'expires' => strtotime('+1 day')
+        ];
+    
+        $arrayDados['usuario_id'] = $usuario_id;
+        $arrayDados['ip'] = $ip_usuario;
+    
+        $token = JWT::encode($arrayDados, JWT_KEY, 'HS256');
+        $auth = $this->getData('usuarios_autenticados', "token, usuario_id, data", ['usuario_id' => $usuario_id]);
+    
+        if (!empty($auth)) {
+            $alterar['data'] = date('Y-m-d', $jwtConfig['expires']);
+            $atualizar = $this->alterData('usuarios_autenticados', $alterar, ['usuario_id' => $usuario_id]);
+            
+            if ($atualizar != '1') {
+                $this->return('error', 'Erro', 'Não foi possível atualizar o token.');
+                return false; 
+            }
+            return true;
+        }
+        $autenticacao = [
+            'usuario_id' => $usuario_id,
+            'token' => $token,
+            'ip' => $ip_usuario,
+            'data' => date('Y-m-d H:i:s', $jwtConfig['expires'])
+        ];
+        $res = $this->addData('usuarios_autenticados', $autenticacao);
+    
+        if ($res !== 1) {
+            return $this->return('error', 'Erro', 'Não foi possível adicionar o token.');
+        }
+    
+        return true;
+    }
+
+    public function verificaToken($token){
+        try {
+            $key = JWT_KEY;
+            JWT::decode($token, new Key($key, 'HS256'));
+
+            return true;
+        } catch (Exception $e) {
+            echo "error: " . $e->getMessage();
+            return false;
+        }
+    }
+
+   
 
 }
