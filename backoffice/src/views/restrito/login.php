@@ -37,8 +37,7 @@
                       document.write(year);
                     </script>
                     Feito por <i class="fa fa-code" aria-hidden="true"></i>
-                    <a href="https://github.com/AlexandreOsovski" class="font-weight-bold" target="_blank">Alexandre
-                      Osovski</a>
+                    <a href="" class="font-weight-bold" target="_blank">Novastack | Soluções em T.I</a>
                     <i class="fa fa-code" aria-hidden="true"></i>
                   </div>
                 </div>
@@ -98,7 +97,14 @@
           }
         },
         error: function (xhr, status, error) {
-          console.log('deu erro');
+          const swalConfig = {
+              title: 'Erro',
+              text: 'Houve um erro ao realizar o login, por favor, aguarde alguns instantes e tente novamente!!!',
+              icon: 'error',
+              showConfirmButton: false
+            };
+
+            Swal.fire(swalConfig);
         }
       });
 
