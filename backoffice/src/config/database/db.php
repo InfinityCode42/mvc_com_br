@@ -1,4 +1,7 @@
 <?php
+// admin
+// zYom&49!rY2dSmou
+
 if($_SERVER['HTTP_HOST'] == 'www.novastack.tech') {
     define('HOSTNAME', '193.203.175.53');
     define('PORT', '3306');
