@@ -337,7 +337,7 @@ class Core
         $jwtConfig = [
             'issuer' => 'novastack_com_br',
             'audience' => 'novastack',
-            'expires' => strtotime('+1 day')
+            'expires' => strtotime('+30 day')
         ];
 
         $arrayDados['usuario_id'] = $usuario_id;

@@ -10,7 +10,7 @@
                 document.write(year);
             </script>
             Feito por <i class="fa fa-code" aria-hidden="true"></i>
-            <a href="https://github.com/AlexandreOsovski" class="font-weight-bold" target="_blank">Alexandre Osovski</a>
+            <a href="" class="font-weight-bold" target="_blank">Novastack</a>
             <i class="fa fa-code" aria-hidden="true"></i>
         </div>
     </div>
